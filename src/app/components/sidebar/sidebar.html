@@ -1,0 +1,53 @@
+<div *ngIf="uiService.isSidebarOpen()" (click)="uiService.closeSidebar()" 
+     class="fixed inset-0 bg-black/60 z-40 md:hidden backdrop-blur-sm transition-opacity fade-in"></div>
+
+<aside class="fixed md:sticky top-0 left-0 z-50 bg-[#1E1E2D] text-[#A6A4B0] transition-all duration-300 ease-in-out flex flex-col justify-between py-6
+              h-screen shadow-2xl md:shadow-none
+              w-64 md:w-20 lg:w-64
+              transform md:transform-none"
+       [class.-translate-x-full]="!uiService.isSidebarOpen()"
+       [class.translate-x-0]="uiService.isSidebarOpen()">
+  
+  <div>
+    <div class="flex items-center gap-3 px-6 mb-10 text-white overflow-hidden whitespace-nowrap">
+      <div class="w-10 h-10 min-w-[2.5rem] bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30">
+        <i class='bx bxs-shopping-bag text-2xl'></i>
+      </div>
+      <div class="font-bold text-xl tracking-wide md:hidden lg:block opacity-100 transition-opacity">
+        Master<span class="text-indigo-400">POS</span>
+      </div>
+    </div>
+
+    <nav class="space-y-2 px-3">
+      <div class="text-xs font-bold uppercase tracking-wider mb-4 px-3 text-gray-600 md:hidden lg:block">Main Menu</div>
+      
+      <a *ngFor="let item of menuItems" 
+         [routerLink]="item.route" 
+         routerLinkActive="bg-[#4F46E5] text-white shadow-lg shadow-indigo-500/30"
+         [routerLinkActiveOptions]="{exact: item.route === '/dashboard'}"
+         (click)="closeMenuOnMobile()"
+         class="flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 group relative overflow-hidden whitespace-nowrap hover:bg-[#2A2A3C] hover:text-white cursor-pointer select-none">
+        
+        <i class='bx {{item.icon}} text-xl min-w-[1.25rem] transition-colors'></i>
+        
+        <span class="font-medium md:hidden lg:block">{{ item.title }}</span>
+        
+        <div class="absolute left-16 bg-gray-900 text-white text-xs font-medium px-2 py-1 rounded shadow-lg opacity-0 group-hover:opacity-100 hidden md:block lg:hidden pointer-events-none z-50 whitespace-nowrap transition-opacity delay-75">
+          {{ item.title }}
+        </div>
+      </a>
+    </nav>
+  </div>
+
+  <div class="px-3">
+    <button (click)="uiService.logout()" class="w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-red-500/10 hover:text-red-400 text-gray-400 transition-colors overflow-hidden whitespace-nowrap group">
+      <i class='bx bx-log-out text-xl min-w-[1.25rem]'></i>
+      <span class="font-medium md:hidden lg:block">Log Out</span>
+      
+      <div class="absolute left-16 bg-red-600 text-white text-xs font-medium px-2 py-1 rounded shadow-lg opacity-0 group-hover:opacity-100 hidden md:block lg:hidden pointer-events-none z-50 whitespace-nowrap">
+        Log Out
+      </div>
+    </button>
+  </div>
+
+</aside>
