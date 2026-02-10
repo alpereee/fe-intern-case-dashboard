@@ -1,0 +1,90 @@
+<div class="space-y-6 animate-fade-in-up">
+  
+  <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4">
+    <div>
+      <h2 class="text-xl font-bold text-gray-800">Recent Orders</h2>
+      <p class="text-sm text-gray-500 mt-1">Manage and track all customer orders</p>
+    </div>
+    <div class="flex gap-3">
+      <button (click)="exportOrders()" 
+              class="px-4 py-2.5 border border-gray-200 text-gray-600 rounded-xl text-sm font-medium hover:bg-gray-50 hover:text-gray-900 transition-colors flex items-center gap-2 active:scale-95">
+        <i class='bx bx-export'></i> Export
+      </button>
+      
+      <button (click)="createOrder()" 
+              class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl text-sm font-bold hover:bg-indigo-700 shadow-lg shadow-indigo-500/30 transition-all flex items-center gap-2 active:scale-95">
+        <i class='bx bx-plus'></i> Create Order
+      </button>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse min-w-[800px]">
+        <thead class="bg-gray-50/50 text-gray-500 text-xs uppercase tracking-wider font-semibold">
+          <tr>
+            <th class="p-5">Order ID</th>
+            <th class="p-5">Customer</th>
+            <th class="p-5">Items</th>
+            <th class="p-5">Total</th>
+            <th class="p-5">Date</th>
+            <th class="p-5">Status</th>
+            <th class="p-5 text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100 text-sm">
+          <tr *ngFor="let order of orders" class="hover:bg-gray-50/80 transition-colors group">
+            
+            <td class="p-5 font-bold text-indigo-600 cursor-pointer hover:underline">
+              {{ order.id }}
+            </td>
+            
+            <td class="p-5 font-medium text-gray-900">
+              {{ order.customer }}
+            </td>
+            
+            <td class="p-5 text-gray-500">
+              {{ order.items }} items
+            </td>
+            
+            <td class="p-5 font-bold text-gray-900">
+              {{ order.total }}
+            </td>
+            
+            <td class="p-5 text-gray-500">
+              {{ order.date }}
+            </td>
+            
+            <td class="p-5">
+              <span [ngClass]="getStatusClass(order.status)" class="px-3 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1.5 shadow-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-current opacity-70"></span>
+                {{ order.status }}
+              </span>
+            </td>
+            
+            <td class="p-5 text-center">
+              <button (click)="editOrder(order.id)" title="Edit Order"
+                      class="text-gray-400 hover:text-indigo-600 p-2 hover:bg-indigo-50 rounded-lg transition-colors active:scale-95 border border-transparent hover:border-indigo-100">
+                <i class='bx bx-edit-alt text-xl'></i>
+              </button>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="p-5 border-t border-gray-100 bg-gray-50/30 flex justify-between items-center text-sm text-gray-500">
+      <span>Showing 1-6 of 24 orders</span>
+      <div class="flex gap-2">
+        <button class="w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200 bg-white hover:bg-gray-50 disabled:opacity-50">
+          <i class='bx bx-chevron-left'></i>
+        </button>
+        <button class="w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200 bg-white hover:bg-gray-50 disabled:opacity-50">
+          <i class='bx bx-chevron-right'></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
