@@ -1,59 +1,59 @@
-# Dashboard
+# 🚀 MasterPOS - Modern Admin Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
+![Angular](https://img.shields.io/badge/Angular-17-DD0031?style=for-the-badge&logo=angular)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)
 
-## Development server
+> A high-performance, fully responsive **Admin Dashboard** built with **Angular 17** and **Tailwind CSS**. Designed for managing products, orders, and customers with a seamless UX.
 
-To start a local development server, run:
+![Dashboard Preview](screenshots/dashboard.png)
 
+## ✨ Key Features
+
+This project demonstrates a real-world **Single Page Application (SPA)** architecture with interactive CRUD simulations.
+
+### 🏠 Dashboard & Analytics
+- **Visual Analytics:** Real-time data simulation with charts and stats cards.
+- **Responsive Layout:** Collapsible sidebar for Tablet and Off-canvas menu for Mobile devices.
+
+### 📦 Product Management
+- **Advanced Filtering:** Real-time search functionality.
+- **Pagination:** Client-side pagination logic.
+- **Interactive Modals:** "Add New Product" feature with form validation.
+- **State Management:** Delete and Edit actions update the UI instantly.
+
+### 👥 Customer & Order Management
+- **Customer Directory:** List view with avatars and status indicators (Active/Blocked).
+- **Order Tracking:** Status-based dynamic styling (badges for Shipped, Pending, etc.).
+- **Actions:** Simulation of Export to Excel and Order Creation.
+
+### ⚙️ Settings Module
+- **Dynamic Tabs:** Switch between Personal Info, Security, and Notifications without reloading.
+- **Interactive Forms:** Save button with loading state simulation.
+
+## 📱 Responsive Design
+
+The application is optimized for all screen sizes (Desktop, Tablet, Mobile).
+
+| Desktop View | Mobile View |
+| :---: | :---: |
+| ![Products](screenshots/products.png) | ![Mobile](screenshots/mobile.png) |
+
+## 🛠 Tech Stack
+
+* **Framework:** [Angular 17](https://angular.io/) (Standalone Components, Signals, Control Flow)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **Icons:** [Boxicons](https://boxicons.com/)
+* **Language:** TypeScript
+
+## 🚀 Getting Started
+
+Follow these steps to run the project locally:
+
+### 1. Clone the repository
 ```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+git clone [https://github.com/alpereee/fe-intern-case-dashboard.git](https://github.com/alpereee/fe-intern-case-dashboard.git)
+cd fe-intern-case-dashboard
+Bash
+npm install
+ng serve 
